@@ -1,0 +1,626 @@
+/* ============================================= */
+/* STYLES.CSS - Portafolio Álvaro Grimaldos      */
+/* ============================================= */
+
+:root {
+  --primary: #3da5dd;
+  --secondary: #2ca4bf;
+  --accent: #60d4ff;
+  --background: #0d0f14;
+  --surface: #13161e;
+  --card: #1a1d28;
+  --border: #252836;
+  --muted: #8892a4;
+
+  /* Tinta sobre superficies rellenas en primary/secondary.
+     Blanco sobre #3da5dd da 2.75:1 y no pasa WCAG AA;
+     esta tinta oscura da 6.96:1 sin tocar el azul de marca. */
+  --on-primary: #06161f;
+  /* Gris legible para placeholders: 4.9:1 sobre el fondo
+     (el 50% de --muted que había antes daba 2.33:1) */
+  --placeholder: #7a8396;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* La navbar es fixed: sin esto, un ancla deja el título debajo de la barra */
+  scroll-padding-top: 6rem;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--background);
+  color: white;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ==================== SUPERFICIES DEL NAVEGADOR ==================== */
+/* Lo que no dibujas también es parte del diseño */
+::selection {
+  background: rgba(96, 212, 255, 0.28);
+  color: #ffffff;
+}
+
+body {
+  caret-color: var(--accent);
+  accent-color: var(--primary);
+  scrollbar-color: var(--border) var(--background);
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 9999px;
+  border: 2px solid var(--background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3e50;
+}
+
+/* ==================== TYPOGRAPHY ==================== */
+.font-display {
+  font-family: 'Syne', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Medida de lectura: los párrafos largos no pasan de ~70 caracteres */
+.measure {
+  max-width: 68ch;
+}
+
+/* ==================== TINTA SOBRE RELLENOS ==================== */
+/* Un solo sitio donde se arregla el contraste de todos los botones.
+   Los selectores llevan dos clases a propósito: así ganan a la utilidad
+   .text-white de Tailwind, que inyecta su hoja después de esta. */
+.tab-btn.active,
+.bg-primary.text-white,
+a.bg-primary.text-white,
+button.bg-primary.text-white,
+.bg-primary.text-white:hover,
+a.bg-primary.text-white:hover,
+button.bg-primary.text-white:hover {
+  color: var(--on-primary);
+}
+
+/* ==================== NAVBAR ==================== */
+#navbar {
+  background: transparent;
+  transition: background-color 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
+  z-index: 50;
+}
+
+.navbar-scrolled {
+  background: rgba(13, 15, 20, 0.88) !important;
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: var(--primary);
+  border-radius: 2px;
+  transition: width 0.3s var(--ease-out);
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after,
+.nav-link.is-current::after {
+  width: 100%;
+}
+
+.nav-link.is-current {
+  color: #ffffff;
+}
+
+/* ==================== HAMBURGUESA ==================== */
+.hamburger-icon span {
+  transform-origin: center;
+}
+
+#menu-toggle[aria-expanded='true'] .hamburger-icon span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+#menu-toggle[aria-expanded='true'] .hamburger-icon span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+#menu-toggle[aria-expanded='true'] .hamburger-icon span:nth-child(3) {
+  width: 1.5rem;
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ==================== HERO ==================== */
+.typing-role {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--accent);
+  animation: typing 3.8s steps(30) infinite, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  0%, 10% { width: 0; }
+  50%, 60% { width: 100%; }
+  90%, 100% { width: 0; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* La entrada escalonada solo existe cuando el JS confirma que puede animar.
+   Sin esta guarda, un fallo de JS deja el hero invisible. */
+.js .hero-content > * {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideUp 0.8s var(--ease-out) forwards;
+}
+
+.js .hero-content > *:nth-child(1) { animation-delay: 0.05s; }
+.js .hero-content > *:nth-child(2) { animation-delay: 0.18s; }
+.js .hero-content > *:nth-child(3) { animation-delay: 0.31s; }
+.js .hero-content > *:nth-child(4) { animation-delay: 0.44s; }
+.js .hero-content > *:nth-child(5) { animation-delay: 0.57s; }
+.js .hero-content > *:nth-child(6) { animation-delay: 0.70s; }
+
+@keyframes fadeSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================== REVELADO AL SCROLL ==================== */
+/* Sin JS el contenido se ve: la animación es una mejora, no un requisito */
+.js .animate-item {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s var(--ease-out),
+    transform 0.7s var(--ease-out);
+}
+
+.js .animate-item.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Escalonado dentro de un mismo grupo */
+.js .animate-item[data-delay='1'] { transition-delay: 0.08s; }
+.js .animate-item[data-delay='2'] { transition-delay: 0.16s; }
+.js .animate-item[data-delay='3'] { transition-delay: 0.24s; }
+
+/* ==================== FLIP CARDS ==================== */
+.flip-card {
+  perspective: 1000px;
+  height: 148px;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+.flip-card:focus {
+  outline: none;
+}
+
+.flip-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s var(--ease-out);
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1.25rem;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: var(--on-primary);
+}
+
+.flip-card-back p {
+  color: var(--on-primary);
+}
+
+/* En pantallas táctiles el hover no existe: la pista de que se puede tocar */
+.flip-card::after {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--primary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+@media (hover: none) {
+  .flip-card { position: relative; }
+  .flip-card::after { opacity: 0.7; }
+  .flip-card.is-flipped::after { opacity: 0; }
+}
+
+/* ==================== SKILL BARS ==================== */
+.skill-bar {
+  width: 100%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(to right, var(--primary), var(--accent));
+  border-radius: 9999px;
+  transition: width 1.4s var(--ease-out);
+}
+
+/* ==================== PROJECT CARDS ==================== */
+.project-card {
+  transition:
+    transform 0.4s var(--ease-out),
+    box-shadow 0.4s var(--ease-out),
+    border-color 0.4s var(--ease-out);
+}
+
+.project-card:hover,
+.project-card:focus-within {
+  transform: translateY(-8px);
+  /* Sombra con desplazamiento y difuminado: profundidad, no halo */
+  box-shadow: 0 18px 40px -16px rgba(0, 0, 0, 0.75);
+  border-color: rgba(61, 165, 221, 0.55);
+}
+
+.project-card img {
+  /* Evita el salto de layout mientras carga */
+  background: var(--surface);
+}
+
+/* ==================== TABS ==================== */
+.tab-btn {
+  padding: 10px 24px;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.tab-btn.active {
+  background: var(--primary);
+  color: var(--on-primary);
+  box-shadow: 0 6px 18px -8px rgba(61, 165, 221, 0.9);
+}
+
+.tab-btn:not(.active) {
+  background: var(--card);
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+
+.tab-btn:not(.active):hover {
+  color: white;
+  border-color: var(--primary);
+}
+
+/* ==================== STAT CARDS ==================== */
+.stat-card {
+  transition: transform 0.3s var(--ease-out), border-color 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(61, 165, 221, 0.4);
+}
+
+/* Las cifras de los contadores no deben bailar mientras suben */
+.counter {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+
+/* ==================== CONTACT CARDS ==================== */
+.contact-info-card {
+  transition: all 0.3s var(--ease-out);
+}
+
+.contact-info-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-4px);
+}
+
+/* ==================== FORMULARIO ==================== */
+.form-field:focus {
+  outline: none;
+  border-color: rgba(61, 165, 221, 0.6);
+  box-shadow: 0 0 0 3px rgba(61, 165, 221, 0.18);
+}
+
+.form-field::placeholder {
+  color: var(--placeholder);
+  opacity: 1;
+}
+
+.form-field:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+#form-status {
+  display: none;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+}
+
+#form-status.is-visible {
+  display: block;
+}
+
+#form-status.is-success {
+  color: #8ff0bd;
+  background: rgba(34, 197, 94, 0.1);
+  border-color: rgba(34, 197, 94, 0.35);
+}
+
+#form-status.is-error {
+  color: #ffb4a8;
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.38);
+}
+
+#submit-btn[aria-busy='true'] {
+  opacity: 0.75;
+  cursor: progress;
+}
+
+.spinner {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-left: 8px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  vertical-align: -2px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ==================== PARTICLES ==================== */
+.particles-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(61, 165, 221, 0.25);
+  animation: float linear infinite;
+  will-change: transform;
+}
+
+@keyframes float {
+  0%   { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(-120px) translateX(40px); }
+}
+
+/* ==================== BACK TO TOP ==================== */
+#back-to-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 9999px;
+  background: var(--primary);
+  color: var(--on-primary);
+  border: 1px solid rgba(96, 212, 255, 0.35);
+  box-shadow: 0 12px 28px -12px rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition:
+    opacity 0.35s var(--ease-out),
+    transform 0.35s var(--ease-out),
+    visibility 0.35s,
+    background-color 0.25s ease;
+}
+
+#back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+#back-to-top:hover {
+  background: var(--accent);
+}
+
+/* ==================== ANIMACIONES ADICIONALES ==================== */
+.animate-pulse-slow {
+  animation: pulse-slow 6s ease-in-out infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 25s linear infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 640px) {
+  html {
+    scroll-padding-top: 5rem;
+  }
+
+  .flip-card {
+    height: 130px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.75rem;
+    line-height: 1.1;
+  }
+
+  /* El cursor de escritura recorta el texto en pantallas estrechas */
+  .typing-role {
+    white-space: normal;
+    overflow: visible;
+    border-right: 0;
+    animation: none;
+  }
+}
+
+/* ==================== FOCUS ACCESSIBILITY ==================== */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+/* Saltar al contenido, para quien navega con teclado */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 60;
+  padding: 10px 18px;
+  border-radius: 10px;
+  background: var(--primary);
+  color: var(--on-primary);
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: top 0.25s var(--ease-out);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ==================== MOVIMIENTO REDUCIDO ==================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .js .hero-content > *,
+  .js .animate-item {
+    opacity: 1;
+    transform: none;
+  }
+
+  .typing-role {
+    white-space: normal;
+    overflow: visible;
+    border-right: 0;
+  }
+
+  .particle {
+    display: none;
+  }
+}

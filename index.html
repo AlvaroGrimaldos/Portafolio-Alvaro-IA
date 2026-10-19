@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Álvaro Grimaldos — Desarrollador Full Stack. Portfolio profesional." />
+  <title>Álvaro Grimaldos · Desarrollador Full Stack</title>
+  <meta name="theme-color" content="#0d0f14" />
+  <link rel="canonical" href="./" />
+
+  <link rel="icon" type="image/svg+xml" href="img/logo.svg" />
+  <link rel="apple-touch-icon" href="img/Perfil.JPEG" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Álvaro Grimaldos · Desarrollador Full Stack" />
+  <meta property="og:description" content="Álvaro Grimaldos — Desarrollador Full Stack. Portfolio profesional." />
+  <meta property="og:image" content="img/Perfil.JPEG" />
+  <meta property="og:locale" content="es_ES" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Álvaro Grimaldos · Desarrollador Full Stack" />
+  <meta name="twitter:description" content="Álvaro Grimaldos — Desarrollador Full Stack. Portfolio profesional." />
+  <meta name="twitter:image" content="img/Perfil.JPEG" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#3da5dd',
+            secondary: '#2ca4bf',
+            accent: '#60d4ff',
+            background: '#0d0f14',
+            surface: '#13161e',
+            card: '#1a1d28',
+            border: '#252836',
+            muted: '#8892a4',
+          },
+          fontFamily: {
+            sans: ['DM Sans', 'sans-serif'],
+            display: ['Syne', 'sans-serif'],
+          },
+          boxShadow: {
+            'glow-sm': '0 0 12px rgba(61,165,221,0.3)',
+            'glow': '0 0 25px rgba(61,165,221,0.4)',
+            'glow-lg': '0 0 50px rgba(61,165,221,0.3)',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-white font-sans overflow-x-hidden">
+
+  <a href="#inicio" class="skip-link">Saltar al contenido</a>
+
+  <!-- NAVBAR -->
+  <header id="navbar" class="fixed w-full z-50 transition-all duration-500">
+    <nav class="max-w-6xl mx-auto flex justify-between items-center px-6 py-5">
+      <a href="#inicio" class="font-display text-xl tracking-tight text-white hover:text-accent transition-colors">
+        alvaro<span class="text-primary">.</span>dev
+      </a>
+      <ul class="hidden md:flex items-center gap-8 text-sm text-muted font-medium">
+        <li><a href="#inicio" class="nav-link hover:text-white transition-colors">Inicio</a></li>
+        <li><a href="#sobremi" class="nav-link hover:text-white transition-colors">Sobre mí</a></li>
+        <li><a href="#habilidades" class="nav-link hover:text-white transition-colors">Habilidades</a></li>
+        <li><a href="#proyectos" class="nav-link hover:text-white transition-colors">Proyectos</a></li>
+        <li>
+          <a href="#contacto" class="px-5 py-2 rounded-full bg-primary hover:bg-secondary text-white text-sm font-semibold transition-all duration-300 shadow-glow-sm hover:shadow-glow">
+            Contacto
+          </a>
+        </li>
+      </ul>
+      <button id="menu-toggle" type="button" class="md:hidden text-white focus:outline-none p-2" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+        <div class="hamburger-icon space-y-1.5">
+          <span class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
+          <span class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
+          <span class="block w-4 h-0.5 bg-white transition-all duration-300"></span>
+        </div>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-surface/98 backdrop-blur-xl border-t border-border">
+      <div class="flex flex-col px-6 py-6 space-y-1">
+        <a href="#inicio" class="mobile-nav-link py-3 px-4 rounded-xl text-muted hover:text-white hover:bg-card transition-all">Inicio</a>
+        <a href="#sobremi" class="mobile-nav-link py-3 px-4 rounded-xl text-muted hover:text-white hover:bg-card transition-all">Sobre mí</a>
+        <a href="#habilidades" class="mobile-nav-link py-3 px-4 rounded-xl text-muted hover:text-white hover:bg-card transition-all">Habilidades</a>
+        <a href="#proyectos" class="mobile-nav-link py-3 px-4 rounded-xl text-muted hover:text-white hover:bg-card transition-all">Proyectos</a>
+        <a href="#contacto" class="mobile-nav-link mt-2 py-3 px-4 rounded-xl bg-primary text-white font-semibold text-center transition-all">Contacto</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden">
+    <div class="particles-container absolute inset-0 z-0"></div>
+    <div class="absolute inset-0 z-0">
+      <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-slow"></div>
+      <div class="absolute bottom-1/4 left-1/4 w-64 h-64 bg-secondary/10 rounded-full blur-3xl animate-pulse-slow" style="animation-delay:2s"></div>
+    </div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-6 py-32 md:py-0 w-full grid md:grid-cols-2 gap-16 items-center">
+      <div class="hero-content space-y-7">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 text-accent text-sm font-medium">
+          <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+          Disponible para nuevas oportunidades
+        </div>
+        <div>
+          <p class="text-muted text-lg mb-2 font-medium">Hola, soy</p>
+          <h1 class="font-display text-5xl md:text-6xl lg:text-7xl leading-tight text-white">
+            Álvaro<br>
+            <span class="text-gradient">Grimaldos</span>
+          </h1>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-px bg-primary"></div>
+          <p class="text-accent font-semibold text-lg typing-role">Desarrollador Full Stack</p>
+        </div>
+        <p class="text-muted text-base leading-relaxed max-w-md">
+          De la idea al impacto: desarrollo software completo que genera valor real. Apasionado por código limpio y soluciones eficientes.
+        </p>
+        <div class="flex flex-wrap gap-4 pt-2">
+          <a href="#proyectos" class="inline-flex items-center gap-2 bg-primary hover:bg-secondary text-white font-semibold py-3 px-7 rounded-full transition-all duration-300 shadow-glow hover:shadow-glow-lg hover:-translate-y-0.5">
+            Ver mis proyectos <i class="fas fa-arrow-right text-sm"></i>
+          </a>
+          <a href="#contacto" class="inline-flex items-center gap-2 border border-border hover:border-primary/50 text-white font-semibold py-3 px-7 rounded-full transition-all duration-300 hover:bg-card hover:-translate-y-0.5">
+            Contáctame
+          </a>
+        </div>
+        <div class="flex items-center gap-4 pt-2">
+          <a href="https://github.com/AlvaroGrimaldos" target="_blank" rel="noopener noreferrer" class="text-muted hover:text-white transition-colors" aria-label="GitHub"><i class="fab fa-github text-xl"></i></a>
+          <a href="https://www.linkedin.com/in/alvaro-andres-grimaldos-sarmiento-00a851360/" target="_blank" rel="noopener noreferrer" class="text-muted hover:text-white transition-colors" aria-label="LinkedIn"><i class="fab fa-linkedin-in text-xl"></i></a>
+          <a href="https://www.instagram.com/4lvaro.me/" target="_blank" rel="noopener noreferrer" class="text-muted hover:text-white transition-colors" aria-label="Instagram"><i class="fab fa-instagram text-xl"></i></a>
+          <div class="w-px h-5 bg-border mx-1"></div>
+          <span class="text-muted text-sm flex items-center gap-1.5">
+            <i class="fas fa-map-marker-alt text-primary text-xs"></i>
+            Bucaramanga, Colombia
+          </span>
+        </div>
+      </div>
+
+      <div class="flex justify-center md:justify-end hero-image">
+        <div class="relative">
+          <div class="absolute inset-0 rounded-full bg-gradient-to-br from-primary/40 to-secondary/20 blur-2xl scale-110"></div>
+          <div class="absolute -inset-4 rounded-full border border-dashed border-primary/20 animate-spin-slow"></div>
+          <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-2 border-primary/40 shadow-glow-lg">
+            <img src="img/Perfil.JPEG" alt="Retrato de Álvaro Grimaldos" width="372" height="464" fetchpriority="high" decoding="async" class="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE MÍ -->
+  <section id="sobremi" class="py-28 relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-1/2 h-1/2 bg-primary/5 rounded-bl-full blur-3xl -z-10"></div>
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center gap-4 mb-5">
+        <div class="w-10 h-0.5 bg-primary"></div>
+        <span class="text-primary text-sm font-semibold tracking-widest uppercase">Sobre mí</span>
+      </div>
+      <h2 class="font-display text-4xl md:text-5xl text-white mb-16">Mi historia</h2>
+
+      <div class="grid md:grid-cols-5 gap-16 items-start">
+        <div class="md:col-span-2 space-y-6 about-image animate-item">
+          <div class="relative rounded-2xl overflow-hidden border border-border">
+            <img src="img/AboutMe2.JPEG" alt="Álvaro Grimaldos trabajando" width="2048" height="1536" loading="lazy" decoding="async" class="w-full object-cover" />
+          </div>
+        </div>
+
+        <div class="md:col-span-3 space-y-8 about-text animate-item">
+          <p class="text-white/90 text-base leading-relaxed mb-4">
+            Soy <span class="text-accent font-semibold">Desarrollador Full Stack</span> apasionado por el aprendizaje constante y la creación de soluciones digitales que realmente aporten valor.
+          </p>
+          <p class="text-muted text-base leading-relaxed">
+            Me destaco por mi disciplina, pensamiento estratégico y curiosidad para aprender nuevas tecnologías. 
+            Tengo experiencia en desarrollo frontend y backend, bases de datos y creación de aplicaciones funcionales.
+          </p>
+          <p class="text-muted text-base leading-relaxed">
+            Mi objetivo es seguir creciendo como desarrollador y participar en proyectos de alto impacto.
+          </p>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6">
+            <div class="stat-card text-center p-4 bg-card rounded-2xl border border-border">
+              <div class="text-3xl font-display font-bold text-primary counter" data-target="8">0</div>
+              <div class="text-xs text-muted mt-1">Proyectos</div>
+            </div>
+            <div class="stat-card text-center p-4 bg-card rounded-2xl border border-border">
+              <div class="text-3xl font-display font-bold text-primary counter" data-target="12">0</div>
+              <div class="text-xs text-muted mt-1">Meses exp.</div>
+            </div>
+            <div class="stat-card text-center p-4 bg-card rounded-2xl border border-border">
+              <div class="text-3xl font-display font-bold text-primary counter" data-target="10">0</div>
+              <div class="text-xs text-muted mt-1">Tecnologías</div>
+            </div>
+            <div class="stat-card text-center p-4 bg-card rounded-2xl border border-border">
+              <div class="text-3xl font-display font-bold text-primary">100</div>
+              <div class="text-xs text-muted mt-1">% Compromiso</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HABILIDADES -->
+  <section id="habilidades" class="py-28 bg-surface relative">
+    <div class="absolute top-0 left-0 w-1/3 h-full bg-primary/3 blur-3xl -z-10 rounded-r-full"></div>
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center gap-4 mb-5">
+        <div class="w-10 h-0.5 bg-primary"></div>
+        <span class="text-primary text-sm font-semibold tracking-widest uppercase">Habilidades</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-4">
+        <h2 class="font-display text-4xl md:text-5xl text-white">Mi stack técnico</h2>
+        <p class="text-muted max-w-xs text-sm leading-relaxed">Tecnologías que domino y aplico en mis proyectos.</p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="flex gap-3 mb-10" role="tablist" aria-label="Tipo de habilidad">
+        <button id="tab-tech" type="button" role="tab" aria-selected="true" aria-controls="tech-skills" class="tab-btn active px-5 py-2 rounded-full text-sm font-semibold transition-all">Técnicas</button>
+        <button id="tab-soft" type="button" role="tab" aria-selected="false" aria-controls="soft-skills" class="tab-btn px-5 py-2 rounded-full text-sm font-semibold transition-all">Blandas</button>
+      </div>
+
+       <!-- Tech Skills -->
+      <div id="tech-skills" role="tabpanel" aria-labelledby="tab-tech" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <!-- n8n -->
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+      <img src="https://cdn.simpleicons.org/n8n" alt="" class="w-10 h-10" width="40" height="40" loading="lazy" decoding="async" />
+      <p class="text-white text-sm font-semibold">n8n</p>
+    </div>
+    <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+      <p class="text-white text-xs text-center leading-relaxed">
+        Automatización de workflows, integraciones y APIs sin código.
+      </p>
+    </div>
+  </div>
+</div>
+           <!-- C# -->
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="" class="w-10 h-10" width="40" height="40" loading="lazy" decoding="async" />
+      <p class="text-white text-sm font-semibold">C#</p>
+    </div>
+    <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+      <p class="text-white text-xs text-center leading-relaxed">
+       Desarrollo de aplicaciones, APIs y videojuegos con C#.
+      </p>
+    </div>
+  </div>
+</div>
+        <!-- HTML -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+              <img src="https://cdn.simpleicons.org/html5" alt="" class="w-10 h-10" width="40" height="40" loading="lazy" decoding="async" />
+              <p class="text-white text-sm font-semibold">HTML5</p>
+            </div>
+            <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+              <p class="text-white text-xs text-center leading-relaxed">Estructura semántica y accesible para webs modernas.</p>
+            </div>
+          </div>
+        </div>
+        <!-- CSS -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+              <img src="https://cdn.simpleicons.org/css" alt="" class="w-10 h-10" width="40" height="40" loading="lazy" decoding="async" />
+              <p class="text-white text-sm font-semibold">CSS3</p>
+            </div>
+            <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+              <p class="text-white text-xs text-center leading-relaxed">Diseños responsivos y animaciones fluidas.</p>
+            </div>
+          </div>
+        </div>
+        <!-- JavaScript -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+              <img src="https://cdn.simpleicons.org/javascript" alt="" class="w-10 h-10" width="40" height="40" loading="lazy" decoding="async" />
+              <p class="text-white text-sm font-semibold">JavaScript</p>
+            </div>
+            <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+              <p class="text-white text-xs text-center leading-relaxed">Interactividad dinámica y experiencias modernas en la web.</p>
+            </div>
+          </div>
+        </div>
+        <!-- TypeScript -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+              <img src="https://cdn.simpleicons.org/typescript" alt="" class="w-10 h-10" width="40" height="40" loading="lazy" decoding="async" />
+              <p class="text-white text-sm font-semibold">TypeScript</p>
+            </div>
+            <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+              <p class="text-white text-xs text-center leading-relaxed">JavaScript tipado para proyectos escalables y seguros.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Next.JS -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+              <img src="https://cdn.simpleicons.org/nextdotjs" alt="" class="w-10 h-10" width="40" height="40" loading="lazy" decoding="async" />
+              <p class="text-white text-sm font-semibold">Next.JS</p>
+            </div>
+            <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+              <p class="text-white text-xs text-center leading-relaxed">Framework de desarrollo web de código abierto basado en React.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Python -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+              <img src="https://cdn.simpleicons.org/python" alt="" class="w-10 h-10" width="40" height="40" loading="lazy" decoding="async" />
+              <p class="text-white text-sm font-semibold">Python</p>
+            </div>
+            <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+              <p class="text-white text-xs text-center leading-relaxed">Análisis de datos, automatización y backend eficiente.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Java -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="" class="w-10 h-10" width="40" height="40" loading="lazy" decoding="async" />
+              <p class="text-white text-sm font-semibold">Java</p>
+            </div>
+            <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+              <p class="text-white text-xs text-center leading-relaxed">Aplicaciones robustas con orientación a objetos.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Spring Boot -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+              <img src="https://cdn.simpleicons.org/springboot" alt="" class="w-10 h-10" width="40" height="40" loading="lazy" decoding="async" />
+              <p class="text-white text-sm font-semibold">Spring Boot</p>
+            </div>
+            <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+              <p class="text-white text-xs text-center leading-relaxed">APIs REST y backend empresarial con Java.</p>
+            </div>
+          </div>
+        </div>
+        <!-- MySQL -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+              <img src="https://cdn.simpleicons.org/mysql" alt="" class="w-10 h-10" width="40" height="40" loading="lazy" decoding="async" />
+              <p class="text-white text-sm font-semibold">MySQL</p>
+            </div>
+            <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+              <p class="text-white text-xs text-center leading-relaxed">Bases de datos relacionales y consultas SQL optimizadas.</p>
+            </div>
+          </div>
+        </div>
+        <!-- PostgreSQL -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+              <img src="https://cdn.simpleicons.org/postgresql" alt="" class="w-10 h-10" width="40" height="40" loading="lazy" decoding="async" />
+              <p class="text-white text-sm font-semibold">PostgreSQL</p>
+            </div>
+            <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+              <p class="text-white text-xs text-center leading-relaxed">Gestión avanzada de datos estructurados y noSQL.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Tailwind -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+              <img src="https://cdn.simpleicons.org/tailwindcss" alt="" class="w-10 h-10" width="40" height="40" loading="lazy" decoding="async" />
+              <p class="text-white text-sm font-semibold">Tailwind</p>
+            </div>
+            <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+              <p class="text-white text-xs text-center leading-relaxed">Diseño utilitario rápido y consistente.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Git -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+              <img src="https://cdn.simpleicons.org/git" alt="" class="w-10 h-10" width="40" height="40" loading="lazy" decoding="async" />
+              <p class="text-white text-sm font-semibold">Git</p>
+            </div>
+            <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+              <p class="text-white text-xs text-center leading-relaxed">Control de versiones y colaboración en equipo.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Azure DevOps -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azuredevops/azuredevops-original.svg" alt="" class="w-10 h-10" width="40" height="40" loading="lazy" decoding="async" />
+              <p class="text-white text-sm font-semibold">Azure DevOps</p>
+            </div>
+            <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+              <p class="text-white text-xs text-center leading-relaxed">CI/CD, gestión de proyectos y pipelines.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+      <!-- Soft Skills -->
+      <div id="soft-skills" role="tabpanel" aria-labelledby="tab-soft" hidden class="hidden grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
+        <div class="skill-card bg-card rounded-2xl border border-border p-5 text-center hover:border-primary/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-puzzle-piece text-primary text-lg"></i>
+          </div>
+          <h3 class="text-white font-semibold text-sm mb-1">Resolución de Problemas</h3>
+          <div class="skill-bar"><div class="skill-progress" style="width:92%"></div></div>
+          <p class="text-muted text-xs mt-2">Enfoque analítico para resolver desafíos técnicos.</p>
+        </div>
+        <div class="skill-card bg-card rounded-2xl border border-border p-5 text-center hover:border-primary/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-users text-primary text-lg"></i>
+          </div>
+          <h3 class="text-white font-semibold text-sm mb-1">Trabajo en Equipo</h3>
+          <div class="skill-bar"><div class="skill-progress" style="width:90%"></div></div>
+          <p class="text-muted text-xs mt-2">Colaboración efectiva en proyectos grupales.</p>
+        </div>
+        <div class="skill-card bg-card rounded-2xl border border-border p-5 text-center hover:border-primary/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-clock text-primary text-lg"></i>
+          </div>
+          <h3 class="text-white font-semibold text-sm mb-1">Gestión del Tiempo</h3>
+          <div class="skill-bar"><div class="skill-progress" style="width:88%"></div></div>
+          <p class="text-muted text-xs mt-2">Organización y cumplimiento de plazos.</p>
+        </div>
+        <div class="skill-card bg-card rounded-2xl border border-border p-5 text-center hover:border-primary/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-book text-primary text-lg"></i>
+          </div>
+          <h3 class="text-white font-semibold text-sm mb-1">Aprendizaje Continuo</h3>
+          <div class="skill-bar"><div class="skill-progress" style="width:95%"></div></div>
+          <p class="text-muted text-xs mt-2">Actualización constante en nuevas tecnologías.</p>
+        </div>
+         <div class="skill-card bg-card rounded-2xl border border-border p-5 text-center hover:border-primary/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-brain text-primary text-lg"></i>
+          </div>
+          <h3 class="text-white font-semibold text-sm mb-1">Pensamiento Crítico</h3>
+          <div class="skill-bar"><div class="skill-progress" style="width:92%"></div></div>
+          <p class="text-muted text-xs mt-2">Evaluación objetiva para tomar las mejores decisiones.</p>
+        </div>
+        <div class="skill-card bg-card rounded-2xl border border-border p-5 text-center hover:border-primary/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-database text-primary text-lg"></i>
+          </div>
+          <h3 class="text-white font-semibold text-sm mb-1">Gestión de Datos</h3>
+          <div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div>
+          <p class="text-muted text-xs mt-2">Análisis y gestión de información estructurada.</p>
+        </div>
+        <div class="skill-card bg-card rounded-2xl border border-border p-5 text-center hover:border-primary/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-book-open text-primary text-lg"></i>
+          </div>
+          <h3 class="text-white font-semibold text-sm mb-1">Aprendizaje Continuo</h3>
+          <div class="skill-bar"><div class="skill-progress" style="width:98%"></div></div>
+          <p class="text-muted text-xs mt-2">Actualización constante en tecnologías emergentes.</p>
+        </div>
+        <div class="skill-card bg-card rounded-2xl border border-border p-5 text-center hover:border-primary/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-lightbulb text-primary text-lg"></i>
+          </div>
+          <h3 class="text-white font-semibold text-sm mb-1">Creatividad</h3>
+          <div class="skill-bar"><div class="skill-progress" style="width:87%"></div></div>
+          <p class="text-muted text-xs mt-2">Pensamiento innovador para soluciones originales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section id="proyectos" class="py-28 relative overflow-hidden">
+    <div class="absolute bottom-0 right-0 w-1/2 h-1/2 bg-primary/5 rounded-tl-full blur-3xl -z-10"></div>
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center gap-4 mb-5">
+        <div class="w-10 h-0.5 bg-primary"></div>
+        <span class="text-primary text-sm font-semibold tracking-widest uppercase">Proyectos</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-4">
+        <h2 class="font-display text-4xl md:text-5xl text-white">Mi trabajo</h2>
+        <a href="https://github.com/AlvaroGrimaldos" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-muted hover:text-white text-sm font-medium transition-colors group">
+          <i class="fab fa-github"></i>
+          Ver todo en GitHub
+          <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+        </a>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-6">
+        <!-- Proyecto 1 -->
+        <article class="project-card bg-card rounded-3xl border border-border overflow-hidden hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-glow group">
+          <div class="relative h-52 overflow-hidden">
+            <img src="img/ACME.jpg" alt="Captura del proyecto ACME Bank" width="1500" height="1600" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <span class="absolute top-4 left-4 text-xs font-semibold bg-background/80 backdrop-blur-sm border border-border text-accent px-3 py-1 rounded-full">Front-end</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-white font-display font-bold text-lg mb-2 group-hover:text-accent transition-colors">ACME BANK | Banco Virtual</h3>
+            <p class="text-muted text-sm leading-relaxed mb-4">Aplicación web de banco digital con transacciones, retiros y pagos usando Firebase.</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs bg-primary/10 border border-primary/20 text-accent px-2.5 py-1 rounded-full">HTML/CSS</span>
+              <span class="text-xs bg-primary/10 border border-primary/20 text-accent px-2.5 py-1 rounded-full">JavaScript</span>
+              <span class="text-xs bg-primary/10 border border-primary/20 text-accent px-2.5 py-1 rounded-full">Firebase</span>
+            </div>
+            <a href="https://alvarogrimaldos.github.io/ProyectoAcmeBank_JavaScrip_GrimaldosAlvaro/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-white bg-primary hover:bg-secondary px-5 py-2.5 rounded-xl transition-all duration-300 w-full justify-center">
+              <i class="fab fa-github text-sm"></i> Ver en GitHub
+            </a>
+          </div>
+        </article>
+
+        <!-- Proyecto 2 -->
+        <article class="project-card bg-card rounded-3xl border border-border overflow-hidden hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-glow group">
+          <div class="relative h-52 overflow-hidden">
+            <img src="img/HappyFeet.jpg" alt="Captura del proyecto Happy Feet Veterinaria" width="1000" height="665" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <span class="absolute top-4 left-4 text-xs font-semibold bg-background/80 backdrop-blur-sm border border-border text-accent px-3 py-1 rounded-full">Back-end</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-white font-display font-bold text-lg mb-2 group-hover:text-accent transition-colors">Happy Feet Veterinaria</h3>
+            <p class="text-muted text-sm leading-relaxed mb-4">Sistema de gestión para veterinaria usando Java y MySQL.</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs bg-primary/10 border border-primary/20 text-accent px-2.5 py-1 rounded-full">Java</span>
+              <span class="text-xs bg-primary/10 border border-primary/20 text-accent px-2.5 py-1 rounded-full">MySQL</span>
+            </div>
+            <a href="https://github.com/AlvaroGrimaldos/HappyFeet_Veterinaria" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-white bg-primary hover:bg-secondary px-5 py-2.5 rounded-xl transition-all duration-300 w-full justify-center">
+              <i class="fab fa-github text-sm"></i> Ver en GitHub
+            </a>
+          </div>
+        </article>
+
+        <!-- Proyecto 3 -->
+        <article class="project-card bg-card rounded-3xl border border-border overflow-hidden hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-glow group">
+          <div class="relative h-52 overflow-hidden">
+            <img src="img/Andes3D.png" alt="Captura del proyecto ANDES 3D" width="1894" height="860" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <span class="absolute top-4 left-4 text-xs font-semibold bg-background/80 backdrop-blur-sm border border-border text-accent px-3 py-1 rounded-full">Full-Stack</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-white font-display font-bold text-lg mb-2 group-hover:text-accent transition-colors">ANDES 3D | Catálogo Web de Productos 3D</h3>
+            <p class="text-muted text-sm leading-relaxed mb-4">Catálogo web de productos 3D con propósito social. Materiales didácticos y de accesibilidad para Colombia.</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs bg-primary/10 border border-primary/20 text-accent px-2.5 py-1 rounded-full">Next.js</span>
+              <span class="text-xs bg-primary/10 border border-primary/20 text-accent px-2.5 py-1 rounded-full">React</span>
+              <span class="text-xs bg-primary/10 border border-primary/20 text-accent px-2.5 py-1 rounded-full">Tailwind CSS</span>
+              <span class="text-xs bg-primary/10 border border-primary/20 text-accent px-2.5 py-1 rounded-full">JavaScript</span>
+            </div>
+            <a href="https://andes3d.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-white bg-primary hover:bg-secondary px-5 py-2.5 rounded-xl transition-all duration-300 w-full justify-center">
+              <i class="fas fa-external-link-alt text-sm"></i> Ver sitio web
+            </a>
+          </div>
+        </article>
+
+        <!-- Proyecto 4 -->
+        <article class="project-card bg-card rounded-3xl border border-border overflow-hidden hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-glow group">
+          <div class="relative h-52 overflow-hidden">
+            <img src="img/Agricola.jpg" alt="Captura del proyecto de gestión de finca agrícola" width="800" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <span class="absolute top-4 left-4 text-xs font-semibold bg-background/80 backdrop-blur-sm border border-border text-accent px-3 py-1 rounded-full">Back-end</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-white font-display font-bold text-lg mb-2 group-hover:text-accent transition-colors">Gestión de Finca Agrícola</h3>
+            <p class="text-muted text-sm leading-relaxed mb-4">Modelado y gestión de base de datos para inventario y producción agrícola.</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs bg-primary/10 border border-primary/20 text-accent px-2.5 py-1 rounded-full">MySQL</span>
+            </div>
+            <a href="https://github.com/AlvaroGrimaldos/Proyecto_MySQL_Grimaldos_Alvaro-Ardila_Nicolas" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-white bg-primary hover:bg-secondary px-5 py-2.5 rounded-xl transition-all duration-300 w-full justify-center">
+              <i class="fab fa-github text-sm"></i> Ver en GitHub
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="py-28 bg-surface relative">
+    <div class="absolute top-0 left-0 w-1/3 h-full bg-primary/5 blur-3xl -z-10 rounded-r-full"></div>
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center gap-4 mb-5">
+        <div class="w-10 h-0.5 bg-primary"></div>
+        <span class="text-primary text-sm font-semibold tracking-widest uppercase">Contacto</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-4">
+        <h2 class="font-display text-4xl md:text-5xl text-white">Hablemos</h2>
+        <p class="text-muted max-w-xs text-sm leading-relaxed">¿Tienes un proyecto en mente? Estoy a un mensaje de distancia.</p>
+      </div>
+
+      <div class="grid md:grid-cols-5 gap-10 items-start">
+        <div class="md:col-span-3 bg-card rounded-3xl border border-border p-8">
+          <h3 class="text-white font-display font-bold text-xl mb-6">Envíame un mensaje</h3>
+          <form action="https://formspree.io/f/xovkrddk" method="POST" class="space-y-5">
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label for="name" class="block text-xs font-medium text-muted mb-2 tracking-wide uppercase">Nombre</label>
+                <input type="text" id="name" name="name" placeholder="Tu nombre" required class="form-field w-full px-4 py-3 bg-background border border-border rounded-xl text-white text-sm" />
+              </div>
+              <div>
+                <label for="email" class="block text-xs font-medium text-muted mb-2 tracking-wide uppercase">Email</label>
+                <input type="email" id="email" name="email" placeholder="tu@email.com" required class="form-field w-full px-4 py-3 bg-background border border-border rounded-xl text-white text-sm" />
+              </div>
+            </div>
+            <div>
+              <label for="subject" class="block text-xs font-medium text-muted mb-2 tracking-wide uppercase">Asunto</label>
+              <input type="text" id="subject" name="subject" placeholder="Asunto del mensaje" required class="form-field w-full px-4 py-3 bg-background border border-border rounded-xl text-white text-sm" />
+            </div>
+            <div>
+              <label for="message" class="block text-xs font-medium text-muted mb-2 tracking-wide uppercase">Mensaje</label>
+              <textarea id="message" name="message" rows="5" placeholder="Cuéntame sobre tu proyecto..." required class="form-field w-full px-4 py-3 bg-background border border-border rounded-xl text-white text-sm resize-none"></textarea>
+            </div>
+            <p id="form-status" role="status" aria-live="polite"></p>
+            <button id="submit-btn" type="submit" class="w-full bg-primary hover:bg-secondary text-white font-semibold py-3.5 px-6 rounded-xl transition-all duration-300 shadow-glow hover:shadow-glow-lg">
+              Enviar mensaje <i class="fas fa-paper-plane ml-2" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
+
+        <div class="md:col-span-2 space-y-4">
+          <a href="mailto:alvarogrimaldos21@gmail.com" class="contact-info-card group bg-card rounded-2xl border border-border p-5 flex items-center gap-4 hover:border-primary/40 transition-all">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+              <i class="fas fa-envelope text-primary"></i>
+            </div>
+            <div>
+              <p class="text-xs text-muted mb-0.5">Email</p>
+              <p class="text-white text-sm font-medium">alvarogrimaldos21@gmail.com</p>
+            </div>
+          </a>
+          <div class="contact-info-card group bg-card rounded-2xl border border-border p-5 flex items-center gap-4 hover:border-primary/40 transition-all">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+              <i class="fas fa-phone text-primary"></i>
+            </div>
+            <div>
+              <p class="text-xs text-muted mb-0.5">Teléfono</p>
+              <p class="text-white text-sm font-medium">+57 316 815 5085</p>
+            </div>
+          </div>
+          <div class="contact-info-card group bg-card rounded-2xl border border-border p-5 flex items-center gap-4 hover:border-primary/40 transition-all">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+              <i class="fas fa-map-marker-alt text-primary"></i>
+            </div>
+            <div>
+              <p class="text-xs text-muted mb-0.5">Ubicación</p>
+              <p class="text-white text-sm font-medium">Bucaramanga, Colombia</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-border bg-background py-10 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <a href="#inicio" class="font-display text-xl text-white">alvaro<span class="text-primary">.</span>dev</a>
+      <p class="text-muted text-sm text-center">© 2026 Álvaro Grimaldos · Desarrollador Full Stack</p>
+      <div class="flex items-center gap-4">
+        <a href="https://github.com/AlvaroGrimaldos" target="_blank" rel="noopener noreferrer" class="text-muted hover:text-white"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/alvaro-andres-grimaldos-sarmiento-00a851360/" target="_blank" rel="noopener noreferrer" class="text-muted hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- VOLVER ARRIBA -->
+  <button id="back-to-top" type="button" aria-label="Volver arriba">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>

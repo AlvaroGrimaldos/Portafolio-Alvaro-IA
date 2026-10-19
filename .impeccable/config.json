@@ -1,0 +1,35 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "styles.css"
+        ],
+        "createdAt": "2026-10-19T17:48:03.196Z",
+        "reason": "Incumbent visual world: .text-gradient ya existia en el hero del portafolio y el usuario pidio explicitamente no cambiar ni quitar nada de su diseno. Pase de refinamiento, no rediseno."
+      },
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-19T17:49:50.860Z",
+        "reason": "Incumbent: .text-gradient sobre el apellido en el hero ya existia; el usuario pidio no cambiar su diseno. Pase de refinamiento."
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-19T17:49:51.250Z",
+        "reason": "Incumbent: los tokens shadow-glow estan definidos en el tailwind.config del propio sitio y son su lenguaje visual; el usuario pidio no cambiar su diseno. Pase de refinamiento."
+      }
+    ]
+  }
+}
