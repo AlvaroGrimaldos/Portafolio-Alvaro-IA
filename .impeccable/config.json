@@ -29,6 +29,15 @@
         ],
         "createdAt": "2026-10-19T17:49:51.250Z",
         "reason": "Incumbent: los tokens shadow-glow estan definidos en el tailwind.config del propio sitio y son su lenguaje visual; el usuario pidio no cambiar su diseno. Pase de refinamiento."
+      },
+      {
+        "rule": "pulsing-dot",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-19T18:15:00.217Z",
+        "reason": "user confirmed: Alvaro eligio mantener el parpadeo del punto verde del badge 'Disponible para nuevas oportunidades' cuando se le ofrecio dejarlo fijo."
       }
     ]
   }
